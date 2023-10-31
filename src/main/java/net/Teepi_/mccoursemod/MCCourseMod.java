@@ -25,7 +25,7 @@ public class MCCourseMod
     // Define mod id in a common place for everything to reference
     public static final String MOD_ID = "mccourse";
     // Directly reference a slf4j logger
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     public MCCourseMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -58,6 +58,7 @@ public class MCCourseMod
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
             event.accept(ModBlocks.ALEXANDRITE_BLOCK);
             event.accept(ModBlocks.RAW_ALEXANDRITE_BLOCK);
+            event.accept(ModBlocks.SOUND_BLOCK);
         }
 
         if (event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) {
