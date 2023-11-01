@@ -1,6 +1,7 @@
 package net.Teepi_.mccoursemod.item;
 
 import net.Teepi_.mccoursemod.MCCourseMod;
+import net.Teepi_.mccoursemod.item.custom.FuelItem;
 import net.Teepi_.mccoursemod.item.custom.MetalDetectorItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -21,6 +22,8 @@ public class ModItems {
             () -> new MetalDetectorItem(new Item.Properties().durability(512)));
     public static final RegistryObject<Item> KOHLRABI = ITEMS.register("kohlrabi",
             () -> new Item(new Item.Properties().food(ModFoodProperties.KOHLRABI)));
+    public static final RegistryObject<Item> PEAT_BRICK = ITEMS.register("peat_brick",
+            () -> new FuelItem(new Item.Properties(), 200));
 
 
     public static void register(IEventBus eventBus) {
