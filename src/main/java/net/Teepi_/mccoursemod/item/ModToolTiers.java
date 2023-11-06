@@ -1,7 +1,6 @@
 package net.Teepi_.mccoursemod.item;
 
 import net.Teepi_.mccoursemod.MCCourseMod;
-import net.Teepi_.mccoursemod.item.ModItems;
 import net.Teepi_.mccoursemod.util.ModTags;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Tier;

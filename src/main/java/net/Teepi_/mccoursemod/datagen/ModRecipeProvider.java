@@ -6,11 +6,14 @@ import net.Teepi_.mccoursemod.item.ModItems;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import org.jetbrains.annotations.NotNull;
 
@@ -142,6 +145,61 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_alexandrite_block", inventoryTrigger(ItemPredicate.Builder.item()
                         .of(ModBlocks.ALEXANDRITE_BLOCK.get()).build()))
                 .save(pWriter);
+
+            // Alexandrite Sword
+            ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.ALEXANDRITE_SWORD.get())
+                    .pattern("X")
+                    .pattern("X")
+                    .pattern("#")
+                    .define('X', ModItems.ALEXANDRITE.get())
+                    .define('#', Items.STICK)
+                    .unlockedBy("has_alexandrite", inventoryTrigger(ItemPredicate.Builder.item()
+                            .of(ModItems.ALEXANDRITE.get()).build()))
+                    .save(pWriter);
+
+            // Alexandrite Pickaxe
+            ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.ALEXANDRITE_PICKAXE.get())
+                    .pattern("XXX")
+                    .pattern(" # ")
+                    .pattern(" # ")
+                    .define('X', ModItems.ALEXANDRITE.get())
+                    .define('#', Items.STICK)
+                    .unlockedBy("has_alexandrite", inventoryTrigger(ItemPredicate.Builder.item()
+                            .of(ModItems.ALEXANDRITE.get()).build()))
+                    .save(pWriter);
+
+            // Alexandrite Shovel
+            ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.ALEXANDRITE_SHOVEL.get())
+                    .pattern("X")
+                    .pattern("#")
+                    .pattern("#")
+                    .define('X', ModItems.ALEXANDRITE.get())
+                    .define('#', Items.STICK)
+                    .unlockedBy("has_alexandrite", inventoryTrigger(ItemPredicate.Builder.item()
+                            .of(ModItems.ALEXANDRITE.get()).build()))
+                    .save(pWriter);
+
+            // Alexandrite Axe
+            ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.ALEXANDRITE_AXE.get())
+                    .pattern("XX")
+                    .pattern("X#")
+                    .pattern(" #")
+                    .define('X', ModItems.ALEXANDRITE.get())
+                    .define('#', Items.STICK)
+                    .unlockedBy("has_alexandrite", inventoryTrigger(ItemPredicate.Builder.item()
+                            .of(ModItems.ALEXANDRITE.get()).build()))
+                    .save(pWriter);
+
+            // Alexandrite Hoe
+            ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.ALEXANDRITE_HOE.get())
+                    .pattern("XX")
+                    .pattern(" #")
+                    .pattern(" #")
+                    .define('X', ModItems.ALEXANDRITE.get())
+                    .define('#', Items.STICK)
+                    .unlockedBy("has_alexandrite", inventoryTrigger(ItemPredicate.Builder.item()
+                            .of(ModItems.ALEXANDRITE.get()).build()))
+                    .save(pWriter);
 
 
 
