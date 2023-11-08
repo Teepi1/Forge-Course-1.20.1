@@ -201,6 +201,19 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                             .of(ModItems.ALEXANDRITE.get()).build()))
                     .save(pWriter);
 
+            // Alexandrite Paxel
+            ShapelessRecipeBuilder.shapeless(RecipeCategory.TOOLS, ModItems.ALEXANDRITE_PAXEL.get())
+                    .requires(ModItems.ALEXANDRITE_PICKAXE.get())
+                    .requires(ModItems.ALEXANDRITE_SHOVEL.get())
+                    .requires(ModItems.ALEXANDRITE_AXE.get())
+                    .unlockedBy("has_alexandrite_pickaxe", inventoryTrigger(ItemPredicate.Builder.item()
+                            .of(ModItems.ALEXANDRITE_PICKAXE.get()).build()))
+                    .unlockedBy("has_alexandrite_shovel", inventoryTrigger(ItemPredicate.Builder.item()
+                            .of(ModItems.ALEXANDRITE_SHOVEL.get()).build()))
+                    .unlockedBy("has_alexandrite_axe", inventoryTrigger(ItemPredicate.Builder.item()
+                            .of(ModItems.ALEXANDRITE_AXE.get()).build()))
+                    .save(pWriter);
+
 
 
     }

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "mccourse:alexandrite_pickaxe"
+    },
+    {
+      "item": "mccourse:alexandrite_shovel"
+    },
+    {
+      "item": "mccourse:alexandrite_axe"
+    }
+  ],
+  "result": {
+    "item": "mccourse:alexandrite_paxel"
+  }
+}

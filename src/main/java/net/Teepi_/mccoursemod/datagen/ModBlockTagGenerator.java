@@ -6,6 +6,7 @@ import net.Teepi_.mccoursemod.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -53,6 +54,11 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
 
         this.tag(ModTags.Blocks.NEEDS_ALEXANDRITE_TOOL)
                 .add(ModBlocks.NETHER_ALEXANDRITE_ORE.get());
+
+        this.tag(ModTags.Blocks.PAXEL_MINEABLE)
+                .addTags(BlockTags.MINEABLE_WITH_PICKAXE)
+                .addTags(BlockTags.MINEABLE_WITH_SHOVEL)
+                .addTags(BlockTags.MINEABLE_WITH_AXE);
 
         this.tag(BlockTags.FENCES)
                 .add(ModBlocks.ALEXANDRITE_FENCE.get());
