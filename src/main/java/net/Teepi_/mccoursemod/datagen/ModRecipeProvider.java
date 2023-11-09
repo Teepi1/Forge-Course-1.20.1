@@ -214,6 +214,43 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                             .of(ModItems.ALEXANDRITE_AXE.get()).build()))
                     .save(pWriter);
 
+        // Alexandrite Helmet
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.ALEXANDRITE_HELMET.get())
+                .pattern("###")
+                .pattern("# #")
+                .define('#', ModItems.ALEXANDRITE.get())
+                .unlockedBy("has_alexandrite", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModItems.ALEXANDRITE.get()).build()))
+                .save(pWriter);
+
+        // Alexandrite Chestplate
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.ALEXANDRITE_CHESTPLATE.get())
+                .pattern("# #")
+                .pattern("###")
+                .pattern("###")
+                .define('#', ModItems.ALEXANDRITE.get())
+                .unlockedBy("has_alexandrite", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModItems.ALEXANDRITE.get()).build()))
+                .save(pWriter);
+
+        // Alexandrite Leggings
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.ALEXANDRITE_LEGGINGS.get())
+                .pattern("###")
+                .pattern("# #")
+                .pattern("# #")
+                .define('#', ModItems.ALEXANDRITE.get())
+                .unlockedBy("has_alexandrite", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModItems.ALEXANDRITE.get()).build()))
+                .save(pWriter);
+
+        // Alexandrite Boots
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.ALEXANDRITE_BOOTS.get())
+                .pattern("# #")
+                .pattern("# #")
+                .define('#', ModItems.ALEXANDRITE.get())
+                .unlockedBy("has_alexandrite", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModItems.ALEXANDRITE.get()).build()))
+                .save(pWriter);
 
 
     }
