@@ -2,6 +2,7 @@ package net.Teepi_.mccoursemod;
 
 import com.mojang.logging.LogUtils;
 import net.Teepi_.mccoursemod.block.ModBlocks;
+import net.Teepi_.mccoursemod.enchantment.ModEnchantments;
 import net.Teepi_.mccoursemod.item.ModCreativeModeTabs;
 import net.Teepi_.mccoursemod.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -33,6 +34,8 @@ public class MCCourseMod
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+
+        ModEnchantments.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
