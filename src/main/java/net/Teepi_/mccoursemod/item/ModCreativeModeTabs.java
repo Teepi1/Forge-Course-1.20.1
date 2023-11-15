@@ -38,6 +38,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.ALEXANDRITE_BOOTS.get());
 
                         output.accept(ModItems.ALEXANDRITE_HORSE_ARMOR.get());
+                        output.accept(ModItems.DATA_TABLET.get());
 
                         output.accept(ModBlocks.RAW_ALEXANDRITE_BLOCK.get());
                         output.accept(ModBlocks.ALEXANDRITE_BLOCK.get());
@@ -57,6 +58,9 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.ALEXANDRITE_WALL.get());
                         output.accept(ModBlocks.ALEXANDRITE_DOOR.get());
                         output.accept(ModBlocks.ALEXANDRITE_TRAPDOOR.get());
+
+
+                        output.accept(ModBlocks.ALEXANDRITE_LAMP.get());
 
                     }).build());
 

@@ -1,6 +1,7 @@
 package net.Teepi_.mccoursemod.block;
 
 import net.Teepi_.mccoursemod.MCCourseMod;
+import net.Teepi_.mccoursemod.block.custom.AlexandriteLampBlock;
 import net.Teepi_.mccoursemod.block.custom.SoundBlock;
 import net.Teepi_.mccoursemod.item.ModItems;
 import net.minecraft.sounds.SoundEvents;
@@ -63,6 +64,10 @@ public class ModBlocks {
             () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK), BlockSetType.IRON));
     public static final RegistryObject<Block> ALEXANDRITE_TRAPDOOR = registryBlock("alexandrite_trapdoor",
             () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK), BlockSetType.IRON));
+
+    public static final RegistryObject<Block> ALEXANDRITE_LAMP = registryBlock("alexandrite_lamp",
+            () -> new AlexandriteLampBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).sound(SoundType.GLASS)
+                    .lightLevel(state -> state.getValue(AlexandriteLampBlock.CLICKED) ? 15 : 0)));
 
 
     private static <T extends Block> RegistryObject<T> registryBlock(String name, Supplier<T> block) {
