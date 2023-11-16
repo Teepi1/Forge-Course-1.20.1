@@ -4,8 +4,10 @@ import com.mojang.logging.LogUtils;
 import net.Teepi_.mccoursemod.block.ModBlocks;
 import net.Teepi_.mccoursemod.enchantment.ModEnchantments;
 import net.Teepi_.mccoursemod.item.ModCreativeModeTabs;
+import net.Teepi_.mccoursemod.item.ModItemProperties;
 import net.Teepi_.mccoursemod.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -37,17 +39,20 @@ public class MCCourseMod
 
         ModEnchantments.register(modEventBus);
 
-        modEventBus.addListener(this::commonSetup);
-
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
+
+        modEventBus.addListener(this::commonSetup);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-
+        event.enqueueWork(() -> {
+            ComposterBlock.COMPOSTABLES.put(ModItems.KOHLRABI.get(), 0.35f);
+            ComposterBlock.COMPOSTABLES.put(ModItems.KOHLRABI_SEEDS.get(), 0.35f);
+        })
     }
 
     // Add the example block item to the building blocks tab
@@ -81,7 +86,10 @@ public class MCCourseMod
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
+            event.enqueueWork(() -> {
+                ModItemProperties.addCustomItemProperties();
 
+            });
         }
     }
 }

@@ -1,12 +1,19 @@
 package net.Teepi_.mccoursemod.datagen.loot;
 
 import net.Teepi_.mccoursemod.block.ModBlocks;
+import net.Teepi_.mccoursemod.block.custom.KohlrabiCropBlock;
 import net.Teepi_.mccoursemod.item.ModItems;
+import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CropBlock;
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -47,6 +54,10 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
         this.dropSelf(ModBlocks.ALEXANDRITE_LAMP.get());
 
+        LootItemCondition.Builder lootitemcondition$builder1 = LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.KOHLRABI_CROP.get())
+                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(KohlrabiCropBlock.AGE, 6));
+        this.add(ModBlocks.KOHLRABI_CROP.get(), this.createCropDrops(ModBlocks.KOHLRABI_CROP.get()
+                , ModItems.KOHLRABI.get(), ModItems.KOHLRABI_SEEDS.get(), lootitemcondition$builder1));
 
     }
 
