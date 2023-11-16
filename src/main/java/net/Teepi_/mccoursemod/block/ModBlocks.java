@@ -2,6 +2,7 @@ package net.Teepi_.mccoursemod.block;
 
 import net.Teepi_.mccoursemod.MCCourseMod;
 import net.Teepi_.mccoursemod.block.custom.AlexandriteLampBlock;
+import net.Teepi_.mccoursemod.block.custom.KohlrabiCropBlock;
 import net.Teepi_.mccoursemod.block.custom.SoundBlock;
 import net.Teepi_.mccoursemod.item.ModItems;
 import net.minecraft.sounds.SoundEvents;
@@ -69,6 +70,8 @@ public class ModBlocks {
             () -> new AlexandriteLampBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).sound(SoundType.GLASS)
                     .lightLevel(state -> state.getValue(AlexandriteLampBlock.CLICKED) ? 15 : 0)));
 
+    public static final RegistryObject<Block> KOHLRABI_CROP = BLOCKS.register("kohlrabi_crop",
+            () -> new KohlrabiCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noCollission().noOcclusion()));
 
     private static <T extends Block> RegistryObject<T> registryBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

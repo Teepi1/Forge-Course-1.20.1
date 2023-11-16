@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import net.Teepi_.mccoursemod.block.ModBlocks;
 import net.Teepi_.mccoursemod.enchantment.ModEnchantments;
 import net.Teepi_.mccoursemod.item.ModCreativeModeTabs;
+import net.Teepi_.mccoursemod.item.ModItemProperties;
 import net.Teepi_.mccoursemod.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
@@ -81,7 +82,10 @@ public class MCCourseMod
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
+            event.enqueueWork(() -> {
+                ModItemProperties.addCustomItemProperties();
 
+            });
         }
     }
 }
