@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import net.Teepi_.mccourse.item.ModArmorMaterials;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
@@ -23,9 +24,13 @@ public class ModArmorItem extends ArmorItem {
     }
 
     @Override
-    public void onArmorTick(ItemStack stack, Level level, Player player) {
-        if(!level.isClientSide() && hasFullSuitOfArmorOn(player)) {
-            evaluateArmorEffects(player);
+    public void inventoryTick(ItemStack stack, Level level, Entity entity, int pSlotId, boolean pIsSelected) {
+        if (!level.isClientSide) {
+            if (entity instanceof Player player) {
+                if (hasFullSuitOfArmorOn(player)) {
+                    evaluateArmorEffects(player);
+                }
+            }
         }
     }
 
