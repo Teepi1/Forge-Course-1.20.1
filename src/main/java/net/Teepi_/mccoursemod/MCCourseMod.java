@@ -52,7 +52,7 @@ public class MCCourseMod
         event.enqueueWork(() -> {
             ComposterBlock.COMPOSTABLES.put(ModItems.KOHLRABI.get(), 0.35f);
             ComposterBlock.COMPOSTABLES.put(ModItems.KOHLRABI_SEEDS.get(), 0.35f);
-        })
+        });
     }
 
     // Add the example block item to the building blocks tab
