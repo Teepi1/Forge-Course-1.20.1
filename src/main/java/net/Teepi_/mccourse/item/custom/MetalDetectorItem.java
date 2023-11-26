@@ -1,6 +1,7 @@
 package net.Teepi_.mccourse.item.custom;
 
 import net.Teepi_.mccourse.item.ModItems;
+import net.Teepi_.mccourse.sound.ModSounds;
 import net.Teepi_.mccourse.util.InventoryUtil;
 import net.Teepi_.mccourse.util.ModTags;
 import net.minecraft.client.gui.screens.Screen;
@@ -8,6 +9,7 @@ import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -36,13 +38,20 @@ public class MetalDetectorItem extends Item {
             for(int i = 0; i <= positionClicked.getY() + 64; i++) {
                 BlockState blockState = pContext.getLevel().getBlockState(positionClicked.below(i));
 
+                // Checking if the Metal Detector finds a valuable block
                 if (isValuableBlock(blockState)) {
-                    outputValuableCoordinates(positionClicked.below(i), player, blockState.getBlock());
+                    //outputValuableCoordinates(positionClicked.below(i), player, blockState.getBlock());
+                    outputBlocksBelow(positionClicked.below(i), player, blockState.getBlock());
                     foundBlock = true;
 
+                    // Adding NBT data to Data Tablet (Type of block found)
                     if (InventoryUtil.hasPlayerStackInInventory(player, ModItems.DATA_TABLET.get())) {
                         addDataToDataTablet(player, positionClicked.below(i), blockState.getBlock());
                     }
+
+                    // Adding Custom Sound for valuable block is found
+                    pContext.getLevel().playSeededSound(null, player.getX(), player.getY(), player.getZ(),
+                            ModSounds.METAL_DETECTOR_FOUND_ORE.get(), SoundSource.BLOCKS, 1f, 1f, 0);
 
                     break;
                 }
@@ -89,6 +98,12 @@ public class MetalDetectorItem extends Item {
     private void outputValuableCoordinates(BlockPos below, Player player, Block block) {
         player.sendSystemMessage(Component.literal("Valuable Found: " + I18n.get(block.getDescriptionId())
                 + " at (" + below.getX() + ", " + below.getY() + ", " + below.getZ() + ")"));
+    }
+    private void outputBlocksBelow(BlockPos below, Player player, Block block) {
+        int blocksBelow = (int) (player.getY() - below.getY());
+
+        player.sendSystemMessage(Component.literal("Valuable Found: " + I18n.get(block.getDescriptionId())
+                + ", " + blocksBelow + " blocks below you at Y:" + below.getY()));
     }
 
     private boolean isValuableBlock(BlockState blockState) {

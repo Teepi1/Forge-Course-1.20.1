@@ -40,14 +40,16 @@
   "block.mccourse.alexandrite_wall": "Alexandrite Wall",
   "block.mccourse.alexandrite_door": "Alexandrite Door",
   "block.mccourse.alexandrite_trapdoor": "Alexandrite Trapdoor",
-
   "block.mccourse.alexandrite_lamp": "Alexandrite Lamp",
+  "block.mccourse.snapdragon": "Snapdragon",
 
   "block.mccourse.sound_block": "Sound Block",
 
   "creativetab.course_tab": "Course Tab",
 
   "enchantment.mccourse.lightning_striker": "Lightning Striker",
+
+  "sounds.mccourse.metal_detector_found_ore": "Metal Detector Found an Ore",
 
   "tooltip.mccourse.metal_detector.tooltip.shift": "Right Click on Blocks to find Valuables",
   "tooltip.mccourse.metal_detector.tooltip": "Press §eSHIFT§r for more Information",
