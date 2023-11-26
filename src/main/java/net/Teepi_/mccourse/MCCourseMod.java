@@ -62,7 +62,7 @@ public class MCCourseMod
         });
     }
 
-    // Add the example block item to the building blocks tab
+    // Adding Mod Items/Blocks to Minecraft Creative Tabs
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.ALEXANDRITE);

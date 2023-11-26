@@ -26,6 +26,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.SNAPDRAGON.get());
                         output.accept(ModItems.PEAT_BRICK.get());
 
+                        output.accept(ModItems.RADIATION_STAFF.get());
                         output.accept(ModItems.ALEXANDRITE_SWORD.get());
                         output.accept(ModItems.ALEXANDRITE_PICKAXE.get());
                         output.accept(ModItems.ALEXANDRITE_SHOVEL.get());
